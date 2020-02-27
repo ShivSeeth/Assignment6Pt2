@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> Assignment 6 part 2 </title>
+	<style type="text/css">
+		html,body,input {font-size:20px;}
+		h1 {text-align: center;}
+	</style>
+	<script language="javascript"> 
+		function isFactor(num, testNum)
+		{
+			if ((num % testNum) == 0) {
+				return true; 
+				//document.write("is factor")
+			}
+			else {
+				return false; 
+				//document.write("is not factor")
+			}
+		}
+		function showFactors(array)
+		{
+			for (let i = 0; i < array.length; i++) {
+				document.write(array[i]);
+			}
+		}
+		//a = [1, 2, "dog", 4, 5];
+		//showFactors(a);
+		function addFactors(array)
+		{
+			sum = 0 
+			for (let i = 0; i < array.length; i++){
+				sum = sum + array[i];
+			}
+			return sum;
+			//document.write(sum)
+		}
+		//b = [1, 2, 4, 71, 142];
+		//addFactors(b)
+		function getFactors(number)
+		{
+			array = [];
+			for (let i = number - 1; i > 0; i--){
+				if (number % i == 0){
+					array.unshift(i);
+				}
+			}
+			return array;
+			//for (let i = 0; i < array.length; i++){
+				//document.write(array[i]);
+			//}
+		}
+		//getFactors(100);
+		function isAmicable()
+		{
+			var num1 = document.form1.number1.value;
+			var num2 = document.form1.number2.value;
+			document.form1.first.value = num1;
+			document.form1.second.value = num2;
+			num1FactorsArr = getFactors(num1);
+			//alert(num1FactorsArr);
+			num2FactorsArr = getFactors(num2);
+			num1Sum = addFactors(num1FactorsArr);
+			//alert(num1Sum);
+			num2Sum = addFactors(num2FactorsArr);
+			if ((num1Sum == num2) && (num2Sum == num1)){
+				document.form1.answer.value = "Amicable";
+			}
+			else {
+				document.form1.answer.value = "Not Amicable";
+			}
+
+		}
+
+
+
+	</script>
+</head>
+<body>
+	<h1> Amicable Number Checker </h1>
+	<form name="form1">
+			Please enter your first number <input type="text" name="number1" id="number1"><br />
+			Please enter your second number <input type="text" name="number2" id="number2"><br />
+			<input type="button" value = "Are they Amicable?" 
+			   onclick ="isAmicable()"><br />
+			<hr>
+			First number: <input type="text" name="first" id="first">
+			Second number: <input type="text" name="second" id="second"><br /><br />
+			<input type="text" name="answer" id="answer">
+
+	</form> 
+
+</body>
+
+</html>
